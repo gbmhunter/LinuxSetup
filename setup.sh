@@ -84,6 +84,24 @@ else
 fi
 
 # =============================================================================================== #
+# ================================== INSTALL JAVA and JAVAFX ==================================== #
+# =============================================================================================== #
+
+if ! type "python3" > /dev/null; then
+	printInfo "Installing python3 and pip..."
+	sudo apt-get install -y python3
+else
+	printInfo "python3 detected on system, not installing."
+fi
+
+if ! type "pip3" > /dev/null; then
+	printInfo "Installing pip3..."
+	sudo apt-get install -y python3-pip
+else
+	printInfo "pip3 detected on system, not installing."
+fi
+
+# =============================================================================================== #
 # ======================================== .bashrc CONFIG ======================================= #
 # =============================================================================================== #
 
