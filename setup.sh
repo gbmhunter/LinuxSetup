@@ -98,21 +98,32 @@ else
 fi
 
 # =============================================================================================== #
-# ================================== INSTALL PYTHON3 and PIP ==================================== #
+# =========================== INSTALL ANACONDA (PYTHON3 + POP PACKAGES) ========================= #
 # =============================================================================================== #
 
-if ! type "python3" > /dev/null; then
-	printInfo "Installing python3 and pip..."
-	sudo apt-get install -y python3
-else
-	printInfo "python3 detected on system, not installing."
-fi
+#if ! type "python3" > /dev/null; then
+#	printInfo "Installing python3 and pip..."
+#	sudo apt-get install -y python3
+#else
+#	printInfo "python3 detected on system, not installing."
+#fi
 
-if ! type "pip3" > /dev/null; then
-	printInfo "Installing pip3..."
-	sudo apt-get install -y python3-pip
+#if ! type "pip3" > /dev/null; then
+#	printInfo "Installing pip3..."
+#	sudo apt-get install -y python3-pip
+#else
+#	printInfo "pip3 detected on system, not installing."
+#fi
+
+if ! type "conda" > /dev/null; then
+	printInfo "Installing Anaconda (with python)..."
+	wget https://repo.continuum.io/archive/Anaconda3-5.0.1-Linux-x86_64.sh
+	chmod +x ./Anaconda3-5.0.1-Linux-x86_64.sh
+	# This next step is interactive! :-(
+	./Anaconda3-5.0.1-Linux-x86_64.sh
+	rm ./Anaconda3-5.0.1-Linux-x86_64.sh
 else
-	printInfo "pip3 detected on system, not installing."
+	printInfo "Anaconda detected on system, not installing."
 fi
 
 # =============================================================================================== #
